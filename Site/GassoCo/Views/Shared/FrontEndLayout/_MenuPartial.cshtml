@@ -1,0 +1,150 @@
+﻿@model Models.ViewModels._LayoutViewModel
+    <nav>
+<div class="header-nav navbar-collapse collapse ">
+    <ul class=" nav navbar-nav">
+        <li class="active menuitem" id="mainLi">
+            <a href="/">@Resources.Label.MenuHome<i class="fa fa-home"></i></a>
+        </li>
+        <li class="has-mega-menu menuitem" id="productLi">
+            <a href="/@ViewContext.RouteData.Values["language"]/productgroup">@Resources.Label.MenuProduct<i class="fa fa-chevron-down"></i></a>
+            <ul class="mega-menu">
+                @{
+                    int a = 0;
+                    <li>
+                        <ul>
+                            @foreach (var item2 in Model.MenuProductGroupViewModel.ProductGroupsWithoutChild)
+                            {
+                                <li>
+                                    <a href="/@ViewContext.RouteData.Values["language"]/product/@item2.Id" class="active">
+                                        <i class="fa fa-spoon"></i>@item2.TitleSrt
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                    foreach (var item in Model.MenuProductGroupViewModel.ParentChildProductGroupViewModel)
+                    {
+                        a++;
+                        <li>
+                            <ul>
+                                <li><a href="/@ViewContext.RouteData.Values["language"]/productgroup/@item.ParentProductGroup.Id" class="active"> <i class="fa fa-spoon"></i>@item.ParentProductGroup.TitleSrt</a></li>
+                                @foreach (var childItem in item.ProductGroups)
+                                {
+                                    <li><a href="/@ViewContext.RouteData.Values["language"]/product/@childItem.Id">@childItem.TitleSrt</a></li>
+
+                                }
+                            </ul>
+                        </li>
+                    }
+                }
+            </ul>
+        </li>
+        <li id="serviceLi" class="menuitem">
+            <a href="/@(ViewContext.RouteData.Values["language"])/service">@Resources.Label.MenuService<i class="fa fa-wrench"></i></a>
+        </li>
+        <li id="blogLi" class="menuitem">
+            <a href="/@ViewContext.RouteData.Values["language"]/blog">@Resources.Label.MenuNews<i class="fa fa-newspaper-o"></i></a>
+        </li>
+        @*<li id="galleryLi" class="menuitem">
+            <a href="/@ViewContext.RouteData.Values["language"]/gallery">@Resources.Label.MenuGallery<i class="fa fa-camera"></i></a>
+        </li>
+        <li id="careerLi" class="menuitem">
+            <a href="/@ViewContext.RouteData.Values["language"]/career">@Resources.Label.MenuCareer<i class="fa fa-users"></i></a>
+        </li>
+        <li id="aboutLi" class="menuitem">
+            <a href="/@ViewContext.RouteData.Values["language"]/about">@Resources.Label.MenuAbout<i class="fa fa-user"></i></a>
+        </li>*@
+        <li id="contactLi" class="menuitem">
+            <a href="/@ViewContext.RouteData.Values["language"]/contact">@Resources.Label.MenuContact<i class="fa fa-phone"></i></a>
+        </li>
+    </ul>
+
+
+
+    <div class="extra-nav">
+
+        <div class="extra-cell">
+            <a href="javascript:;" class="wt-cart cart-btn" title="Your Cart">
+                <span class="link-inner">
+
+
+                    @*<span class="woo-cart-count">
+                            <span class="shopping-bag wcmenucart-count ">
+
+                                <img id="iran-flag" src="~/images/Flags/ir.png" height="22px" width="22px"  onclick="languageChanged('fa-IR')"/>
+
+                                <img id="us-flag" src="~/images/Flags/us.png" height="22px" width="22px" onclick="languageChanged('en-US')"/>
+
+
+                            </span>
+                        </span>*@
+
+
+
+                    <span class="woo-cart-count">
+                        <span class="shopping-bag wcmenucart-count ">
+                            <a href="@Url.Action(ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "fa",id=ViewContext.RouteData.Values["id"]?.ToString(), productGroupId= ViewContext.RouteData.Values["productGroupId"]?.ToString() }, null)">
+                            <img id="iran-flag"  src="~/images/Flags/ir.png"  height="22px" width="22px" />
+                            </a>
+                            <a href="@Url.Action(ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(),new { language = "en",id=ViewContext.RouteData.Values["id"]?.ToString(), productGroupId = ViewContext.RouteData.Values["productGroupId"]?.ToString() }, null)">
+                                <img id="us-flag"  src="~/images/Flags/us.png"  height="22px" width="22px" />
+                            </a>
+                            @*<img id="iran-flag" src="~/images/Flags/ir.png" height="22px" width="22px"  onclick="languageChanged('fa-IR')"/>
+
+                                <img id="us-flag" src="~/images/Flags/us.png" height="22px" width="22px" onclick="languageChanged('en-US')"/>*@
+
+
+                        </span>
+                    </span>
+                </span>
+            </a>
+            @*<div class="cart-dropdown-item-wraper clearfix">
+                    <div class="nav-cart-content">
+                        <div class="nav-cart-items p-a15">
+                            <div class="nav-cart-item clearfix text-right">
+                                <ul>
+                                    <li onclick="languageChanged('en-US')"><img src="~/images/Flags/us.png" height="22px" width="22px" /></li>
+                                    <li  onclick="languageChanged('fa-IR')"><img src="~/images/Flags/ir.png" height="22px" width="22px" /></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+        </div>
+    </div>
+</div>
+    </nav>
+<script src="~/Scripts/UI/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var URL = window.location.pathname;
+        if (URL.includes('product')) {
+            $('.menuitem').removeClass('active');
+            $('#productLi').addClass('active');
+        }
+        else if (URL.includes('service')) {
+            $('.menuitem').removeClass('active');
+            $('#serviceLi').addClass('active');
+        }
+        else if (URL.includes('blog')) {
+            $('.menuitem').removeClass('active');
+            $('#blogLi').addClass('active');
+        }
+        else if (URL.includes('gallery')) {
+            $('.menuitem').removeClass('active');
+            $('#galleryLi').addClass('active');
+        }
+        else if (URL.includes('career')) {
+            $('.menuitem').removeClass('active');
+            $('#careerLi').addClass('active');
+        }
+        else if (URL.includes('about')) {
+            $('.menuitem').removeClass('active');
+            $('#aboutLi').addClass('active');
+        }
+        else if (URL.includes('contact')) {
+            $('.menuitem').removeClass('active');
+            $('#contactLi').addClass('active');
+        }
+    });
+</script>

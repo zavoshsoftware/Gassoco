@@ -1,0 +1,165 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <meta name="author" content="zavosh" />
+    <meta name="robots" content="" />
+    <meta name="description" content="@ViewBag.Description" />
+    @RenderSection("canonical", required: false)
+
+    <!-- FAVICONS ICON -->
+    @*<link rel="icon" href="/images/favicon.ico" type="image/x-icon" />*@
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
+    <!-- PAGE TITLE HERE -->
+    <title>@ViewBag.Title</title>
+    <!-- MOBILE SPECIFIC -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- [if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+        <script src="js/respond.min.js"></script>
+    <![endif] -->
+    <!-- BOOTSTRAP STYLE SHEET -->
+    <link rel="stylesheet" type="text/css" href="/Content/UI/bootstrap.min.css">
+    <link href="~/Content/UI/bootstrap-rtl.css" rel="stylesheet" id="bootstrap-rtl" />
+
+    <!-- FONTAWESOME STYLE SHEET -->
+    <link rel="stylesheet" type="text/css" href="/Content/UI/fontawesome/css/font-awesome.min.css" />
+    <!-- FLATICON STYLE SHEET -->
+    <link rel="stylesheet" type="text/css" href="/Content/UI/flaticon.min.css">
+    <!-- ANIMATE STYLE SHEET -->
+    <link rel="stylesheet" type="text/css" href="/Content/UI/animate.min.css">
+    <!-- OWL CAROUSEL STYLE SHEET -->
+    <link rel="stylesheet" type="text/css" href="/Content/UI/owl.carousel.min.css">
+    <!-- BOOTSTRAP SELECT BOX STYLE SHEET -->
+    <link rel="stylesheet" type="text/css" href="/Content/UI/bootstrap-select.min.css">
+    <!-- MAGNIFIC POPUP STYLE SHEET -->
+    <link rel="stylesheet" type="text/css" href="/Content/UI/magnific-popup.min.css">
+    <!-- LOADER STYLE SHEET -->
+    <link rel="stylesheet" type="text/css" href="/Content/UI/loader.min.css">
+    <!-- MAIN STYLE SHEET -->
+    <link rel="stylesheet" type="text/css" href="/Content/UI/style.css">
+    <!-- THEME COLOR CHANGE STYLE SHEET -->
+    <link rel="stylesheet" class="skin" type="text/css" href="/Content/UI/skin/skin-1.css">
+    <!-- CUSTOM  STYLE SHEET -->
+    <link rel="stylesheet" type="text/css" href="/Content/UI/custom.css">
+    <!-- REVOLUTION SLIDER CSS -->
+    <link rel="stylesheet" type="text/css" href="/Content/UI/plugins/revolution/revolution/css/settings.css">
+    <!-- REVOLUTION NAVIGATION STYLE -->
+    <link rel="stylesheet" type="text/css" href="/Content/UI/plugins/revolution/revolution/css/navigation.css">
+    <!-- GOOGLE FONTS -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,800italic,800,700italic' rel='stylesheet' type='text/css'>
+    <!--Right To Left Styles-->
+    <link href="~/Content/UI/style-fa.css" rel="stylesheet"  id="style-rtl" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117118752-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-117118752-1');
+    </script>
+    <meta name="google-site-verification" content="FsDSNJn8yapfIi1Rg0LacZjATGK427AIMZPDHctJx3M" />
+</head>
+<body>
+<div class="page-wraper">
+    <header class="site-header header-style-3 ">
+        <div class="sticky-header main-bar-wraper">
+            <div class="main-bar bg-primary">
+                <div class="container">
+                    <div class="logo-header mostion">
+                        <a href="/">
+                            <img src="/images/logo.png" width="171" height="49" alt="gasso" />
+                        </a>
+                    </div>
+                    <button data-target=".header-nav" data-toggle="collapse" type="button" class="navbar-toggle collapsed">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.Partial("FrontEndLayout/_MenuPartial")
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="page-content">
+        @RenderBody()
+    </div>
+    @Html.Partial("FrontEndLayout/_FooterPartial")
+    <button class="scroltop"><i class=" fa fa-arrow-up"></i></button>
+</div>
+<script type="text/javascript" src="/Scripts/UI/changeLanguage.js"></script>
+
+    <script type="text/javascript" src="/Scripts/UI/jquery-1.12.4.min.js"></script><!-- JQUERY.MIN JS -->
+    <script type="text/javascript" src="/Scripts/UI/bootstrap.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+    <script type="text/javascript" src="/Scripts/UI/bootstrap-select.min.js"></script> 
+    <script type="text/javascript" src="/Scripts/UI/jquery.bootstrap-touchspin.min.js"></script><!-- FORM JS -->
+    <script type="text/javascript" src="/Scripts/UI/magnific-popup.min.js"></script><!-- MAGNIFIC-POPUP JS -->
+    <script type="text/javascript" src="/Scripts/UI/waypoints.min.js"></script><!-- WAYPOINTS JS -->
+    <script type="text/javascript" src="/Scripts/UI/counterup.min.js"></script><!-- COUNTERUP JS -->
+    <script type="text/javascript" src="/Scripts/UI/waypoints-sticky.min.js"></script><!-- COUNTERUP JS -->
+    @*<script type="text/javascript" src="/Scripts/UI/isotope.pkgd.min.js"></script>*@ 
+    <script type="text/javascript" src="/Scripts/UI/owl.carousel.min.js"></script><!-- OWL  SLIDER  -->
+    <script type="text/javascript" src="/Scripts/UI/stellar.min.js"></script><!-- PARALLAX BG IMAGE   -->
+    <script type="text/javascript" src="/Scripts/UI/scrolla.min.js"></script><!-- ON SCROLL CONTENT ANIMTE   -->
+@RenderSection("mapScripts", required: false)   
+    <script type="text/javascript" src="/Scripts/UI/custom.js"></script><!-- CUSTOM FUCTIONS  -->
+    <script type="text/javascript" src="/Scripts/UI/shortcode.js"></script><!-- SHORTCODE FUCTIONS  -->
+    <!-- REVOLUTION JS FILES -->
+    <script type="text/javascript" src="/Content/UI/plugins/revolution/revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script type="text/javascript" src="/Content/UI/plugins/revolution/revolution/js/jquery.themepunch.revolution.min.js"></script>
+    <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
+    <script type="text/javascript" src="/Content/UI/plugins/revolution/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+    <script type="text/javascript" src="/Content/UI/plugins/revolution/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+    <script type="text/javascript" src="/Content/UI/plugins/revolution/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script type="text/javascript" src="/Content/UI/plugins/revolution/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script type="text/javascript" src="/Content/UI/plugins/revolution/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+    @*<script type="text/javascript" src="/Content/UI/plugins/revolution/revolution/js/extensions/revolution.extension.navigation.min.js"></script>*@
+    <script type="text/javascript" src="/Content/UI/plugins/revolution/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script type="text/javascript" src="/Content/UI/plugins/revolution/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    @*<script type="text/javascript" src="/Content/UI/plugins/revolution/revolution/js/extensions/revolution.extension.video.min.js"></script>*@
+    <script src="~/Scripts/UI/inlinScript.js"></script>
+
+
+    <!-- LOADING AREA START ===== -->
+    @*<div class="loading-area" style="">
+        <div class="loading-box"></div>
+        <div class="loading-pic">
+            <div class="loader">
+                <span class="block-1"></span>
+                <span class="block-2"></span>
+                <span class="block-3"></span>
+                <span class="block-4"></span>
+                <span class="block-5"></span>
+                <span class="block-6"></span>
+                <span class="block-7"></span>
+                <span class="block-8"></span>
+                <span class="block-9"></span>
+                <span class="block-10"></span>
+                <span class="block-11"></span>
+                <span class="block-12"></span>
+                <span class="block-13"></span>
+                <span class="block-14"></span>
+                <span class="block-15"></span>
+                <span class="block-16"></span>
+            </div>
+        </div>
+    </div>*@
+    <!-- LOADING AREA  END ====== -->
+
+
+@RenderSection("scripts", required: false)
+</body>
+
+</html>
